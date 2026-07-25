@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Worth Yourself</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --accent: #EF8E6B;
+      --bg: #F4EFEA;
+      --surface: #FFFFFF;
+      --border: #E9E2E7;
+      --text: #332E38;
+      --muted: #6E6873;
+      --serif: 'Newsreader', Georgia, serif;
+      --sans: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { width: 100%; max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .wordmark {
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .wordmark:hover { text-decoration: none; opacity: 0.8; }
+
+    .hero {
+      padding: 56px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 5vw, 40px);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .content { padding-bottom: 80px; }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      margin: 40px 0 12px;
+    }
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 24px 0 8px;
+    }
+    p { margin-bottom: 14px; font-size: 15px; }
+    ul, ol {
+      margin: 10px 0 14px 20px;
+      font-size: 15px;
+    }
+    li { margin-bottom: 6px; }
+
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin: 24px 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--text); text-decoration: underline; }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a class="wordmark" href="../">Worth Yourself</a>
+      <a href="../" style="font-size:14px;color:var(--muted)">← Back to site</a>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="hero">
+      <h1>Privacy Policy</h1>
+      <p>Last updated: 30 June 2026</p>
+    </div>
+
+    <div class="content">
+
+      <div class="callout">
+        Short version: we collect only what we need to run the app. We don't sell your data. The AI coach messages you send are used solely to generate a reply — they are never used to train any model. You can request deletion of your account and all associated data at any time.
+      </div>
+
+      <p>This Privacy Policy explains how Worth Yourself ("we", "our", or "us") collects, uses, and protects information when you use the Worth Yourself mobile application and associated services.</p>
+
+      <h2>1. Information we collect</h2>
+
+      <h3>Account information</h3>
+      <p>When you create an account, we collect your email address and a hashed password (if you use email/password sign-in). If you sign in with Google, we receive your email address and name from Google — we do not receive or store your Google password. We also store a unique user ID assigned by our authentication provider (Supabase).</p>
+
+      <h3>Profile and in-app data</h3>
+      <p>To provide the service, we store the data you create inside the app, including:</p>
+      <ul>
+        <li>Your Worth Score history and domain scores (Health, Education, Finance, Lifestyle, Bonds)</li>
+        <li>Your habit records and completion history</li>
+        <li>Your journal entries (tagged life events)</li>
+        <li>Your domain weighting preferences</li>
+        <li>Your optional public ticker symbol and display name (if you choose to claim one)</li>
+        <li>Your friends list (if you use the social features)</li>
+        <li>Your date of birth and country (used locally to determine data residency; not shared)</li>
+        <li>Your display preferences (theme, text size, currency, haptics)</li>
+      </ul>
+
+      <h3>Coach messages</h3>
+      <p>If you subscribe to the AI coach, your chat messages and the coach's replies are stored to provide conversation history across sessions. A summary of your in-app data (Worth Score, domain scores, habits, recent journal activity) is sent alongside each message to help the coach give relevant advice. This data is used only to generate your reply and is never used to train any AI model.</p>
+
+      <h3>Health data</h3>
+      <p>If you enable Apple Health or Google Health Connect integration, we read daily step count and sleep duration from your device. This data is processed on your device to generate a Health domain score and is not transmitted to our servers — it stays local to your device. We do not store raw health readings.</p>
+
+      <h3>Waitlist and feedback</h3>
+      <p>If you sign up for the waitlist or submit in-app feedback, we store your email address and the content of your submission.</p>
+
+      <h3>Usage analytics</h3>
+      <p>We use PostHog to collect anonymised product analytics — screens visited, features used, and key events (such as completing a habit or starting a trial). This helps us understand how the app is used and improve it. Analytics are not collected for users who are under the applicable consent age in their country (determined by the date of birth you provide during setup), or for users who use the app in local-only (offline) mode.</p>
+
+      <h3>Technical data</h3>
+      <p>Our infrastructure automatically records standard server logs including IP addresses, request timestamps, and error traces. These are used for security monitoring and debugging and are retained for up to 90 days.</p>
+
+      <h2>2. How we use your information</h2>
+
+      <ul>
+        <li>To provide and maintain the app and its features</li>
+        <li>To authenticate you and keep your account secure</li>
+        <li>To generate your Worth Score and coach responses</li>
+        <li>To send transactional emails (account confirmation, password reset)</li>
+        <li>To send product emails, such as tips and updates, if you signed up for the waitlist or created an account (you can unsubscribe at any time)</li>
+        <li>To understand how people use the app so we can improve it</li>
+        <li>To investigate and prevent fraud, abuse, or security incidents</li>
+      </ul>
+
+      <h2>3. Third-party services</h2>
+
+      <p>We use the following third-party services to operate Worth Yourself. Each is bound by its own privacy policy.</p>
+
+      <h3>Supabase</h3>
+      <p>Our database, authentication, and server-side functions run on <a href="https://supabase.com/privacy" target="_blank">Supabase</a>. All app data (scores, habits, journal, coach messages) is stored in a Supabase-managed Postgres database. Data is hosted in the US.</p>
+
+      <h3>Anthropic</h3>
+      <p>The AI coach is powered by <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Claude API</a>. Your messages are sent to Anthropic's servers to generate a reply and are subject to Anthropic's API usage policy. Anthropic does not use API inputs to train its models by default.</p>
+
+      <h3>PostHog</h3>
+      <p>Usage analytics are collected by <a href="https://posthog.com/privacy" target="_blank">PostHog</a>. Events are anonymised before being sent — we do not send your email address or real name to PostHog.</p>
+
+      <h3>Resend</h3>
+      <p>Transactional and marketing emails are sent via <a href="https://resend.com/legal/privacy-policy" target="_blank">Resend</a>. Your email address is transmitted to Resend to deliver emails you have requested or opted into.</p>
+
+      <h3>Google (Sign-in)</h3>
+      <p>If you choose to sign in with Google, your authentication is handled by Google. We receive only your email and name from Google. See <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+
+      <h2>4. Data retention</h2>
+
+      <p>We retain your data for as long as your account is active. If you delete your account, we will delete your personal data within 30 days, except where we are required to retain it for legal or fraud-prevention purposes (such as server logs, which are retained for up to 90 days).</p>
+
+      <h2>5. Your rights</h2>
+
+      <p>Depending on where you live, you may have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you</li>
+        <li>Correct inaccurate data</li>
+        <li>Request deletion of your data ("right to be forgotten")</li>
+        <li>Object to or restrict certain processing</li>
+        <li>Export your data in a portable format</li>
+        <li>Withdraw consent at any time (where processing is based on consent)</li>
+      </ul>
+      <p>To exercise any of these rights, email us at <a href="mailto:support@worthyourself.app">support@worthyourself.app</a>. We will respond within 30 days. You can also delete your account directly from the app (Profile → Settings → Account → Delete account).</p>
+
+      <h2>6. Children's privacy</h2>
+
+      <p>Worth Yourself is not directed at children under 13. In countries where a higher age of digital consent applies (for example, 16 in some EU member states), we apply that higher threshold. During setup, we ask for your date of birth and country; users below the applicable consent age are restricted to a local-only mode where no data is sent to our servers and no analytics are collected.</p>
+      <p>If you believe a child under the applicable age has created an account, please contact us at <a href="mailto:support@worthyourself.app">support@worthyourself.app</a> and we will delete the account promptly.</p>
+
+      <h2>7. Data security</h2>
+
+      <p>We use row-level security on all database tables so users can only access their own data. Communication between the app and our servers is encrypted in transit (TLS). API keys and secrets are stored as server-side environment variables and are never included in the app binary.</p>
+      <p>No method of transmission or storage is 100% secure. If you become aware of a security issue, please disclose it responsibly to <a href="mailto:support@worthyourself.app">support@worthyourself.app</a>.</p>
+
+      <h2>8. International transfers</h2>
+
+      <p>Our infrastructure is based in the United States. If you are located outside the US, your data will be transferred to and processed in the US. We rely on standard contractual mechanisms where required by applicable law.</p>
+
+      <h2>9. Changes to this policy</h2>
+
+      <p>We may update this policy from time to time. If we make material changes, we will update the "Last updated" date at the top of this page and, where appropriate, notify you by email or in-app notice. Continued use of the app after a change takes effect constitutes acceptance of the updated policy.</p>
+
+      <h2>10. Contact</h2>
+
+      <p>If you have questions about this Privacy Policy or how we handle your data, please contact us at <a href="mailto:support@worthyourself.app">support@worthyourself.app</a>.</p>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-links">
+        <a href="../">Home</a>
+        <a href="../privacy/">Privacy Policy</a>
+        <a href="../terms/">Terms of Service</a>
+        <a href="../support/">Support</a>
+        <a href="mailto:support@worthyourself.app">Contact</a>
+      </div>
+      <div>&copy; 2026 Worth Yourself. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>

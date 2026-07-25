@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worth Yourself — your life as a single number</title>
+  <meta name="description" content="Worth Yourself turns your daily actions across five life domains into one Worth Score that moves like a stock price. Calm, encouraging, private by default. Join the early-access waitlist." />
+
+  <meta property="og:title" content="Worth Yourself" />
+  <meta property="og:description" content="Your whole life as a single number that moves like a stock price. Join the early-access waitlist." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --accent: #EF8E6B;
+      --accent-deep: #D9744F;
+      --accent-soft: rgba(239, 142, 107, 0.14);
+      --bg: #F4EFEA;
+      --surface: #FFFFFF;
+      --surface-alt: #F1ECEF;
+      --border: #E9E2E7;
+      --text: #332E38;
+      --muted: #6E6873;
+      --positive: #5C9A7E;
+      --dawn-1: #E7EEF2;
+      --dawn-2: #F1ECE7;
+      --dawn-3: #FBF0E9;
+      --serif: 'Newsreader', Georgia, serif;
+      --sans: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      /* domain accent colors, from the app */
+      --d-health: #4FA89B;
+      --d-education: #A78BC9;
+      --d-finance: #E0A958;
+      --d-lifestyle: #7FA8D8;
+      --d-social: #E48A9A;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 16px;
+      color: #fff;
+      background: var(--accent);
+      border: none;
+      border-radius: 14px;
+      padding: 15px 26px;
+      cursor: pointer;
+      transition: opacity 0.15s ease, transform 0.05s ease;
+    }
+    .btn:hover { opacity: 0.92; }
+    .btn:active { transform: translateY(1px); }
+    .btn.ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(244, 239, 234, 0.82);
+      backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-family: var(--serif); font-weight: 600; font-size: 20px; }
+    .brand .accent { color: var(--accent); }
+    .nav .btn { padding: 10px 18px; font-size: 14.5px; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(165deg, var(--dawn-1) 0%, var(--dawn-2) 45%, var(--dawn-3) 100%);
+      padding: 72px 0 84px;
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 12.5px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent-deep); background: var(--accent-soft);
+      padding: 6px 14px; border-radius: 999px; margin-bottom: 20px;
+    }
+    h1 {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(38px, 6vw, 60px); line-height: 1.08;
+      letter-spacing: -0.01em; margin-bottom: 20px;
+    }
+    h1 .accent { color: var(--accent); }
+    .lead { font-size: 19px; color: var(--muted); max-width: 30ch; margin-bottom: 30px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .cta-note { font-size: 13.5px; color: var(--muted); margin-top: 14px; }
+
+    .hero-art { position: relative; display: flex; justify-content: center; }
+    .hero-art .phone {
+      width: 270px; max-width: 72vw;
+      border-radius: 34px; border: 1px solid var(--border);
+      background: var(--surface); overflow: hidden;
+      box-shadow: 0 30px 60px rgba(51, 46, 56, 0.22);
+    }
+
+    /* Section scaffolding */
+    section.block { padding: 84px 0; }
+    .eyebrow {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.09em;
+      text-transform: uppercase; color: var(--accent-deep); margin-bottom: 14px;
+    }
+    h2 {
+      font-family: var(--serif); font-weight: 500;
+      font-size: clamp(28px, 4vw, 40px); line-height: 1.15; margin-bottom: 16px;
+    }
+    .section-lead { font-size: 17.5px; color: var(--muted); max-width: 56ch; }
+    .center { text-align: center; }
+    .center .section-lead { margin-left: auto; margin-right: auto; }
+
+    /* The idea — big number callout */
+    .idea { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .idea-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+    .score-card {
+      background: linear-gradient(160deg, var(--dawn-2), var(--dawn-3));
+      border: 1px solid var(--border); border-radius: 28px;
+      padding: 44px 32px; text-align: center;
+    }
+    .score-card .k { font-size: 12.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .score-card .v { font-family: var(--serif); font-size: 64px; line-height: 1; margin: 12px 0; }
+    .score-card .v .unit { font-size: 24px; color: var(--accent); vertical-align: super; }
+    .score-card .delta { color: var(--positive); font-weight: 600; font-size: 16px; }
+
+    /* Domains */
+    .domains { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 40px; }
+    .domain {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 18px; padding: 22px 16px; text-align: center;
+    }
+    .domain .dot { width: 44px; height: 44px; border-radius: 999px; margin: 0 auto 14px; display: grid; place-items: center; font-size: 22px; }
+    .domain h3 { font-family: var(--sans); font-weight: 600; font-size: 15.5px; margin-bottom: 4px; }
+    .domain p { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+    /* How it works */
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 44px; }
+    .step { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 28px 24px; }
+    .step .n {
+      width: 38px; height: 38px; border-radius: 999px;
+      background: var(--accent-soft); color: var(--accent-deep);
+      display: grid; place-items: center; font-weight: 600; font-size: 16px; margin-bottom: 16px;
+    }
+    .step h3 { font-family: var(--serif); font-weight: 500; font-size: 21px; margin-bottom: 8px; }
+    .step p { font-size: 15px; color: var(--muted); }
+
+    /* Screenshots */
+    .shots { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; margin-top: 48px; }
+    .phone-fig { width: 240px; max-width: 72vw; }
+    .phone-fig .phone {
+      width: 100%; border-radius: 30px; border: 1px solid var(--border);
+      background: var(--surface); overflow: hidden;
+      box-shadow: 0 24px 48px rgba(51, 46, 56, 0.16);
+    }
+    .phone-fig figcaption { font-size: 14px; color: var(--muted); text-align: center; padding-top: 14px; }
+
+    /* Philosophy — values row */
+    .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 44px; }
+    .value { padding: 4px; }
+    .value .ic { font-size: 26px; margin-bottom: 12px; }
+    .value h3 { font-family: var(--serif); font-weight: 500; font-size: 20px; margin-bottom: 8px; }
+    .value p { font-size: 15px; color: var(--muted); }
+
+    /* Final CTA */
+    .final { background: linear-gradient(165deg, var(--dawn-1), var(--dawn-3)); border-top: 1px solid var(--border); }
+    .final .card-inner { max-width: 540px; margin: 0 auto; text-align: center; }
+    form.signup { display: flex; gap: 10px; margin: 26px auto 0; max-width: 440px; }
+    form.signup input {
+      flex: 1; font-family: var(--sans); font-size: 16px; color: var(--text);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 15px 16px; outline: none; transition: border-color 0.15s ease;
+    }
+    form.signup input:focus { border-color: var(--accent); }
+    form.signup .btn { white-space: nowrap; }
+    .msg { font-size: 14px; min-height: 20px; margin-top: 14px; }
+    .msg.error { color: #B4543C; }
+    .msg.ok { color: var(--positive); }
+    .final .foot-note { font-size: 13px; color: var(--muted); margin-top: 10px; }
+
+    /* Footer */
+    footer { padding: 40px 0; border-top: 1px solid var(--border); background: var(--bg); }
+    .foot-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .foot-row .brand { font-size: 17px; }
+    .foot-row small { color: var(--muted); font-size: 13px; }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .hero { padding: 52px 0 60px; }
+      .hero-grid, .idea-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-art { order: -1; }
+      .domains { grid-template-columns: repeat(2, 1fr); }
+      .steps, .values { grid-template-columns: 1fr; }
+      section.block { padding: 60px 0; }
+      form.signup { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <span class="brand">Worth&nbsp;<span class="accent">Yourself</span></span>
+      <a href="#join" class="btn">Join the waitlist</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="badge">Early access · coming soon</span>
+        <h1>Your life as a<br /><span class="accent">single number.</span></h1>
+        <p class="lead">One score, built from how you actually live — that moves like a stock price.</p>
+        <div class="cta-row">
+          <a href="#join" class="btn">Join the waitlist</a>
+          <a href="#how" class="btn ghost">See how it works</a>
+        </div>
+        <p class="cta-note">No spam. One email when we open the doors.</p>
+      </div>
+      <div class="hero-art">
+        <figure class="phone">
+          <img src="./assets/shot-dashboard.png" alt="The Worth Yourself dashboard showing a Worth Score" width="1000" height="1784" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE IDEA -->
+  <section class="block idea">
+    <div class="wrap idea-grid">
+      <div>
+        <p class="eyebrow">The idea</p>
+        <h2>You track your money. Why not your&nbsp;life?</h2>
+        <p class="section-lead">
+          Worth Yourself rolls your daily actions across five life domains into one
+          <strong>Worth Score</strong>. Do the things that matter and it climbs; let them
+          slide and it eases back — a calm, honest signal of how you're really doing,
+          updated like a market you're invested in.
+        </p>
+      </div>
+      <div class="score-card">
+        <div class="k">Your Worth Score</div>
+        <div class="v"><span class="unit">WY₵</span> 7,420</div>
+        <div class="delta">▲ +180 this week</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAINS -->
+  <section class="block">
+    <div class="wrap center">
+      <p class="eyebrow">Five life domains</p>
+      <h2>You weight what matters to you.</h2>
+      <p class="section-lead">Split a 20-point budget across the five areas to set your personal weighting — your score reflects <em>your</em> priorities, not a generic average.</p>
+    </div>
+    <div class="wrap">
+      <div class="domains">
+        <div class="domain">
+          <div class="dot" style="background: rgba(79,168,155,0.16); color: var(--d-health);">🏃</div>
+          <h3>Health</h3><p>Movement, sleep, energy.</p>
+        </div>
+        <div class="domain">
+          <div class="dot" style="background: rgba(167,139,201,0.16); color: var(--d-education);">📚</div>
+          <h3>Education</h3><p>Learning and growth.</p>
+        </div>
+        <div class="domain">
+          <div class="dot" style="background: rgba(224,169,88,0.18); color: var(--d-finance);">💰</div>
+          <h3>Finance</h3><p>Money and security.</p>
+        </div>
+        <div class="domain">
+          <div class="dot" style="background: rgba(127,168,216,0.18); color: var(--d-lifestyle);">🎨</div>
+          <h3>Lifestyle</h3><p>Joy and balance.</p>
+        </div>
+        <div class="domain">
+          <div class="dot" style="background: rgba(228,138,154,0.18); color: var(--d-social);">🤝</div>
+          <h3>Bonds</h3><p>People and connection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="block idea" id="how">
+    <div class="wrap center">
+      <p class="eyebrow">How it works</p>
+      <h2>Three steps to your score.</h2>
+    </div>
+    <div class="wrap">
+      <div class="steps">
+        <div class="step">
+          <div class="n">1</div>
+          <h3>Set your weights</h3>
+          <p>Allocate your 20 points across the five domains. The split is your ranking — what you care about most carries the most weight.</p>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <h3>Build daily habits</h3>
+          <p>Create habits that fit your life. Every one you complete nudges its domain — and your Worth Score — upward.</p>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <h3>Watch it move</h3>
+          <p>See your score tick like a stock, track week-over-week growth, claim your ticker, and compare with friends.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section class="block">
+    <div class="wrap center">
+      <p class="eyebrow">A peek inside</p>
+      <h2>Calm by design.</h2>
+      <p class="section-lead">No streak guilt, no red alarms. Just a clear picture and gentle momentum.</p>
+    </div>
+    <div class="wrap">
+      <div class="shots">
+        <figure class="phone-fig">
+          <div class="phone"><img src="./assets/shot-welcome.png" alt="Worth Yourself welcome screen" loading="lazy" width="1000" height="1784" /></div>
+          <figcaption>Five domains, one score</figcaption>
+        </figure>
+        <figure class="phone-fig">
+          <div class="phone"><img src="./assets/shot-dashboard.png" alt="Worth Yourself dashboard" loading="lazy" width="1000" height="1784" /></div>
+          <figcaption>Watch it move like a stock</figcaption>
+        </figure>
+        <figure class="phone-fig">
+          <div class="phone"><img src="./assets/shot-habits.png" alt="Worth Yourself habits screen" loading="lazy" width="1000" height="1784" /></div>
+          <figcaption>Habits that nudge it up</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="block idea">
+    <div class="wrap center">
+      <p class="eyebrow">What we believe</p>
+      <h2>Encouraging, not punishing.</h2>
+    </div>
+    <div class="wrap">
+      <div class="values">
+        <div class="value">
+          <div class="ic">🌅</div>
+          <h3>A down day is a fresh start</h3>
+          <p>The copy never shames you. Slip up and tomorrow simply opens a new opportunity to climb.</p>
+        </div>
+        <div class="value">
+          <div class="ic">🔒</div>
+          <h3>Private by default</h3>
+          <p>Your Worth Score is yours. You choose what — if anything — to share with friends.</p>
+        </div>
+        <div class="value">
+          <div class="ic">⚖️</div>
+          <h3>Your values, your weighting</h3>
+          <p>No one-size-fits-all formula. You decide what a good life looks like, and the score follows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="block final" id="join">
+    <div class="wrap">
+      <div class="card-inner">
+        <p class="eyebrow">Be first in</p>
+        <h2>Join the waitlist.</h2>
+        <p class="section-lead">We'll email you the moment Worth Yourself opens — and not before.</p>
+        <form class="signup" id="form" novalidate>
+          <input id="email" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com" aria-label="Email address" required />
+          <button type="submit" class="btn" id="submit">Join the waitlist</button>
+        </form>
+        <p class="msg" id="msg" role="status" aria-live="polite"></p>
+        <p class="foot-note">No spam. One email when we open the doors.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot-row">
+      <span class="brand">Worth&nbsp;<span class="accent">Yourself</span></span>
+      <small>
+        © 2026 Worth Yourself ·
+        <a href="privacy/" style="color:inherit;text-decoration:underline">Privacy</a> ·
+        <a href="terms/" style="color:inherit;text-decoration:underline">Terms</a> ·
+        <a href="support/" style="color:inherit;text-decoration:underline">Support</a> ·
+        <a href="mailto:support@worthyourself.app" style="color:inherit;text-decoration:underline">Contact</a>
+      </small>
+    </div>
+  </footer>
+
+  <script src="./config.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById('form');
+      var emailEl = document.getElementById('email');
+      var submitEl = document.getElementById('submit');
+      var msgEl = document.getElementById('msg');
+      var cfg = window.WAITLIST_CONFIG || {};
+
+      function setMsg(t, k) { msgEl.textContent = t; msgEl.className = 'msg' + (k ? ' ' + k : ''); }
+      function validEmail(v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+
+      // Fire the welcome email (fire-and-forget). The Edge Function only sends to
+      // a real waitlist address and dedupes, so this is safe from the page and
+      // no-ops if the function isn't deployed yet.
+      function fireWelcome(email) {
+        try {
+          fetch(cfg.SUPABASE_URL.replace(/\/$/, '') + '/functions/v1/email', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'apikey': cfg.SUPABASE_ANON_KEY,
+              'Authorization': 'Bearer ' + cfg.SUPABASE_ANON_KEY
+            },
+            body: JSON.stringify({ action: 'welcome', email: email })
+          }).catch(function () {});
+        } catch (e) {}
+      }
+
+      function showSuccess() {
+        var inner = form.parentElement;
+        inner.querySelector('h2').textContent = "You're in.";
+        inner.querySelector('.section-lead').textContent =
+          "You're on the list. We'll email you the moment Worth Yourself opens.";
+        form.style.display = 'none';
+        setMsg('', '');
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var email = emailEl.value.trim().toLowerCase();
+        if (!validEmail(email)) { setMsg('Please enter a valid email address.', 'error'); emailEl.focus(); return; }
+        if (!cfg.SUPABASE_URL || !cfg.SUPABASE_ANON_KEY) {
+          setMsg("Waitlist isn't configured yet. (Set SUPABASE_URL + SUPABASE_ANON_KEY in config.js)", 'error'); return;
+        }
+        submitEl.disabled = true; setMsg('Joining…');
+        fetch(cfg.SUPABASE_URL.replace(/\/$/, '') + '/rest/v1/waitlist', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': cfg.SUPABASE_ANON_KEY,
+            'Authorization': 'Bearer ' + cfg.SUPABASE_ANON_KEY,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({
+            email: email,
+            source: cfg.SOURCE || 'landing-page',
+            referrer: document.referrer || null,
+            user_agent: navigator.userAgent || null
+          })
+        })
+          .then(function (res) {
+            if (res.ok) { fireWelcome(email); showSuccess(); return; }
+            if (res.status === 409) { showSuccess(); return; }
+            return res.text().then(function (t) { throw new Error(t || ('HTTP ' + res.status)); });
+          })
+          .catch(function (err) {
+            submitEl.disabled = false;
+            setMsg('Something went wrong — please try again.', 'error');
+            if (window.console) console.error('[waitlist]', err);
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
