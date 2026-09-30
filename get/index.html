@@ -102,7 +102,7 @@
     // Apple campaign provider token: App Store Connect > App Analytics > Campaigns > Generate
     // a campaign link, and copy the number after "pt=". Until it is set, the store link works
     // but Apple's own analytics cannot split installs by source (PostHog still can).
-    var PT = '';
+    var PT = '129121857';
     var POSTHOG_KEY = 'phc_AThe2U9LmLSVzqBZbVmjVu27g2nSWZs7w534ALNvg5o5';
     var POSTHOG_HOST = 'https://us.i.posthog.com';
 
@@ -124,7 +124,7 @@
     try { refHost = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '') : ''; } catch (e) {}
 
     var source = (params.get('s') || params.get('utm_source') || inApp || refHost || 'direct')
-      .toLowerCase().replace(/[^a-z0-9._-]/g, '').slice(0, 40) || 'direct';
+      .toLowerCase().replace(/[^a-z0-9._-]/g, '').slice(0, 30) || 'direct';
     var platform = ios ? 'ios' : android ? 'android' : 'desktop';
 
     var distinctId;
@@ -153,7 +153,7 @@
     }
 
     var query = (PT ? 'pt=' + PT + '&ct=' + encodeURIComponent(source) + '&' : '') + 'mt=8';
-    var storeHttps = 'https://apps.apple.com/app/id' + APP_ID + '?' + query;
+    var storeHttps = 'https://apps.apple.com/app/apple-store/id' + APP_ID + '?' + query;
     // Inside a webview the https link just loads the store's web page in that webview.
     // itms-apps:// is handed to iOS, which opens the App Store app: that is the escape.
     var storeUrl = inApp ? storeHttps.replace(/^https:/, 'itms-apps:') : storeHttps;
