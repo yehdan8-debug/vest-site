@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Vest</title>
+  <meta name="description" content="Your life, priced like a market. Get Vest free on the App Store." />
+  <meta property="og:title" content="Get Vest" />
+  <meta property="og:description" content="Your life, priced like a market. One Value Score, built from five life domains, free on the App Store." />
+  <meta property="og:type" content="website" />
+  <meta name="apple-itunes-app" content="app-id=6787424790" />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet" />
+  <!--
+    Smart link for bios and ads: getvest.app/get (optionally ?s=<source>).
+    - iPhone in an in-app browser (Instagram, TikTok, Facebook, ...): jumps straight into the
+      App Store app via itms-apps://, which escapes the webview in one step.
+    - iPhone in Safari: the https App Store link, which iOS opens in the App Store app itself.
+    - Android: there is no Android app yet, so it says so and offers to open the site in Chrome.
+    - Desktop: a QR code of this page for the phone.
+    Every visit and tap is sent to PostHog (anonymous, no cookies, no person profile).
+    The source is ?s=, then ?utm_source=, then the in-app browser's name, then the referrer.
+  -->
+  <style>
+    :root {
+      --accent: #2A2A2E; --accent-rgb: 42, 42, 46;
+      --background: #F2F2F3; --surface: #FBFBFB;
+      --text-primary: #1C1C1E; --text-muted: #55555A; --text-on-accent: #FFFFFF;
+      --border: rgba(51, 46, 56, 0.08);
+      --dawn-1: #ECECED; --dawn-3: #F7F7F7;
+      --font-serif: 'Newsreader', Georgia, serif;
+      --font-sans: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --accent: #F2F2F3; --accent-rgb: 242, 242, 243; --text-on-accent: #1C1C1E;
+        --background: #121214; --surface: #1C1C1F;
+        --text-primary: #F2F2F3; --text-muted: #A1A1A6;
+        --border: rgba(255, 255, 255, 0.10);
+        --dawn-1: #161618; --dawn-3: #0E0E10;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; }
+    body {
+      font-family: var(--font-sans); color: var(--text-primary);
+      background: linear-gradient(165deg, var(--dawn-1), var(--dawn-3)) fixed, var(--background);
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; min-height: 100dvh; padding: 24px 16px;
+      -webkit-font-smoothing: antialiased; text-align: center;
+    }
+    main { width: 100%; max-width: 380px; }
+    .wordmark { font-family: var(--font-serif); font-weight: 600; font-size: 44px; letter-spacing: -0.02em; }
+    .tag { color: var(--text-muted); font-size: 17px; line-height: 1.45; margin: 10px 0 32px; }
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+      font: 600 17px var(--font-sans); padding: 17px 24px; border-radius: 14px;
+      text-decoration: none; background: var(--accent); color: var(--text-on-accent);
+      box-shadow: 0 8px 20px rgba(var(--accent-rgb), 0.22);
+      -webkit-tap-highlight-color: transparent; transition: opacity 120ms;
+    }
+    .btn:active { opacity: 0.8; }
+    .btn svg { width: 20px; height: 20px; fill: currentColor; }
+    .link { display: inline-block; margin-top: 18px; color: var(--text-muted); font-size: 15px; text-decoration: underline; text-underline-offset: 3px; }
+    .note { color: var(--text-muted); font-size: 14px; margin-top: 14px; line-height: 1.45; }
+    #qr { background: #fff; padding: 14px; border-radius: 14px; display: inline-block; margin-bottom: 16px; border: 1px solid var(--border); }
+    #qr svg { display: block; width: 200px; height: 200px; }
+    [hidden] { display: none !important; }
+    @media (prefers-reduced-motion: reduce) { .btn { transition: none; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="wordmark">Vest</div>
+    <p class="tag">Your life, priced like a market.<br />Free on the App Store.</p>
+
+    <section id="ios" hidden>
+      <a id="store-btn" class="btn" href="https://apps.apple.com/app/id6787424790">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.37 12.63c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-3-.79-1.54.02-2.96.9-3.76 2.28-1.6 2.78-.41 6.9 1.15 9.15.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.4-.92-2.42-3.65zM14.1 5.9c.63-.77 1.06-1.83.94-2.9-.91.04-2.02.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.27z"/></svg>
+        Get Vest on the App Store
+      </a>
+      <p class="note">Opening the App Store…</p>
+    </section>
+
+    <section id="android" hidden>
+      <p class="note" style="margin:0 0 20px">Vest is on iPhone for now. Android is on the way.</p>
+      <a id="chrome-btn" class="btn" href="https://getvest.app/">See what Vest is</a>
+    </section>
+
+    <section id="desktop" hidden>
+      <div id="qr" aria-label="QR code for this page"></div>
+      <p class="note">Scan with your iPhone camera to get Vest.</p>
+      <a id="desktop-store" class="link" href="https://apps.apple.com/app/id6787424790">Or open the App Store listing</a>
+    </section>
+  </main>
+
+  <script>
+  (function () {
+    var APP_ID = '6787424790';
+    // Apple campaign provider token: App Store Connect > App Analytics > Campaigns > Generate
+    // a campaign link, and copy the number after "pt=". Until it is set, the store link works
+    // but Apple's own analytics cannot split installs by source (PostHog still can).
+    var PT = '';
+    var POSTHOG_KEY = 'phc_AThe2U9LmLSVzqBZbVmjVu27g2nSWZs7w534ALNvg5o5';
+    var POSTHOG_HOST = 'https://us.i.posthog.com';
+
+    var ua = navigator.userAgent || '';
+    var params = new URLSearchParams(location.search);
+    var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+    var android = /Android/i.test(ua);
+
+    var IN_APP = [
+      ['instagram', /Instagram/i], ['facebook', /FBAN|FBAV|FB_IAB|FBIOS/i],
+      ['tiktok', /TikTok|musical_ly|BytedanceWebview|trill/i], ['snapchat', /Snapchat/i],
+      ['twitter', /Twitter/i], ['linkedin', /LinkedInApp/i], ['threads', /Barcelona/i],
+      ['telegram', /Telegram/i], ['line', /\bLine\//i]
+    ];
+    var inApp = null;
+    for (var i = 0; i < IN_APP.length; i++) if (IN_APP[i][1].test(ua)) { inApp = IN_APP[i][0]; break; }
+
+    var refHost = '';
+    try { refHost = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '') : ''; } catch (e) {}
+
+    var source = (params.get('s') || params.get('utm_source') || inApp || refHost || 'direct')
+      .toLowerCase().replace(/[^a-z0-9._-]/g, '').slice(0, 40) || 'direct';
+    var platform = ios ? 'ios' : android ? 'android' : 'desktop';
+
+    var distinctId;
+    try { distinctId = sessionStorage.getItem('vest.link.id'); } catch (e) {}
+    if (!distinctId) {
+      distinctId = 'link_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      try { sessionStorage.setItem('vest.link.id', distinctId); } catch (e) {}
+    }
+
+    function track(event, extra) {
+      if (!POSTHOG_KEY || POSTHOG_KEY.indexOf('__') === 0) return;
+      var props = {
+        source: source, platform: platform, in_app_browser: inApp || 'none',
+        campaign: params.get('utm_campaign') || params.get('c') || null,
+        from_ad: params.has('fbclid') || params.has('ttclid'),
+        $current_url: location.href, $referrer: document.referrer || '$direct',
+        $lib: 'vest-link', $process_person_profile: false
+      };
+      for (var k in extra) props[k] = extra[k];
+      var body = JSON.stringify({ api_key: POSTHOG_KEY, event: event, distinct_id: distinctId, properties: props });
+      var url = POSTHOG_HOST + '/i/v0/e/';
+      try {
+        if (navigator.sendBeacon && navigator.sendBeacon(url, new Blob([body], { type: 'text/plain' }))) return;
+      } catch (e) {}
+      try { fetch(url, { method: 'POST', body: body, keepalive: true, mode: 'no-cors' }); } catch (e) {}
+    }
+
+    var query = (PT ? 'pt=' + PT + '&ct=' + encodeURIComponent(source) + '&' : '') + 'mt=8';
+    var storeHttps = 'https://apps.apple.com/app/id' + APP_ID + '?' + query;
+    // Inside a webview the https link just loads the store's web page in that webview.
+    // itms-apps:// is handed to iOS, which opens the App Store app: that is the escape.
+    var storeUrl = inApp ? storeHttps.replace(/^https:/, 'itms-apps:') : storeHttps;
+
+    track('link_opened');
+
+    if (ios) {
+      document.getElementById('ios').hidden = false;
+      var btn = document.getElementById('store-btn');
+      btn.href = storeUrl;
+      btn.addEventListener('click', function () { track('link_store_tapped'); });
+      // Once per session, so coming back from the App Store does not bounce straight out again.
+      var bounced = false;
+      try { bounced = sessionStorage.getItem('vest.link.bounced') === '1'; sessionStorage.setItem('vest.link.bounced', '1'); } catch (e) {}
+      if (!bounced) {
+        setTimeout(function () { track('link_store_redirect'); location.href = storeUrl; }, 60);
+      } else {
+        document.querySelector('#ios .note').hidden = true;
+      }
+    } else if (android) {
+      document.getElementById('android').hidden = false;
+      var cbtn = document.getElementById('chrome-btn');
+      if (inApp) {
+        cbtn.href = 'intent://getvest.app/#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=https%3A%2F%2Fgetvest.app%2F;end';
+        cbtn.textContent = 'Open in Chrome';
+      }
+      cbtn.addEventListener('click', function () { track('link_site_tapped'); });
+    } else {
+      document.getElementById('desktop').hidden = false;
+      document.getElementById('desktop-store').href = storeHttps;
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js';
+      s.onload = function () {
+        var qr = window.qrcode(0, 'M');
+        qr.addData('https://getvest.app/get/?s=' + encodeURIComponent(source === 'direct' ? 'qr' : source));
+        qr.make();
+        document.getElementById('qr').innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true });
+      };
+      s.onerror = function () { document.getElementById('qr').hidden = true; };
+      document.head.appendChild(s);
+    }
+  })();
+  </script>
+</body>
+</html>
